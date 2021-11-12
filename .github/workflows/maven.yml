@@ -28,3 +28,10 @@ jobs:
       if: ${{ env.BUILD_TECH == 'java_maven' }}
       run: mvn ${{ env.MVN_ARGS }}
       continue-on-error: ${{ env.CONTINUE_ON_ERROR }}
+      
+      ######## Upload Artifact ######
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v2.2.4
+      with:
+          name: artifact 
+          path: $GITHUB_WORKSPACE
