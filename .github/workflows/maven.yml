@@ -6,10 +6,9 @@ name: Java with Mavens
 env:
   STACK: java
   BUILD_TECH: java_maven
-  MVN_ARGS: clean install --batch-mode --update-snapshots verify
   CONTINUE_ON_ERROR: false
   CONTINUE_ON_ERROR_SETUP: true
-  JOB_STATUS_CODE: 0
+  #JOB_STATUS_CODE: 0
 
 on:
   push:
@@ -34,7 +33,7 @@ jobs:
     - name: Build with Maven
       id: build_maven
       if: ${{ env.BUILD_TECH == 'java_maven' }}
-      run: mvn ${{ env.MVN_ARGS }}
+      run: mvn clean install --batch-mode --update-snapshots verify
       continue-on-error: ${{ env.CONTINUE_ON_ERROR }}
       
       ######## Upload Artifact ######
