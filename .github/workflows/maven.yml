@@ -1,6 +1,6 @@
 
 
-name: Java with Mavens 
+name: Java CI with Maven 
 
 env:
   BUILD_TECH: java_maven
