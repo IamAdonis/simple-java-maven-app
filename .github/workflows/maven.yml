@@ -63,4 +63,7 @@ jobs:
           name: artifact 
           path: ${{Github.workspace}}/target/*.jar
           
-          
+   ########### JUnit Test with maven ##########   
+   
+    - name: Test with Maven
+      run: mvn -B test --file pom.xml
