@@ -67,3 +67,14 @@ jobs:
    
     - name: Test with Maven
       run: mvn -B test --file pom.xml
+      
+   ########## Jacoco code coverage report ####
+   
+    - name: upload JaCoCo coverage report
+      uses: actions/upload-artifact@v2.2.4
+      with:
+          name: artifact 
+          path: target/site/jacoco/
+          
+   
+   
