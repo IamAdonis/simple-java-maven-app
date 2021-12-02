@@ -85,8 +85,9 @@ jobs:
         #curl -u abc: https://sonarcloud.io/api/measures/search_history?from=2021-01--1$&component=IamAdonis_simple-java-maven-app&metrics=coverage&ps=1000 >> ./Response.json
         # curl -u abc: https://sonarcloud.io/api/measures/component?metricKeys=code_smells,coverage,duplicated_lines_density,vulnerabilities,security_hotspots,critical_violations,bugs&component=IamAdonis_simple-java-maven-app >> ./Response.json
 
-        curl -x GET 'https://sonarcloud.io/api/measures/component?metricKeys=code_smells,coverage,duplicated_lines_density,vulnerabilities,security_hotspots,critical_violations,bugs&component=IamAdonis_simple-java-maven-app' -H "Accept:application/json" -H "Authorization:Bearer  ${{secrets.SONARCODE}}">> ./Response.json
+        curl -x GET 'https://sonarcloud.io/api/measures/component?metricKeys=code_smells,coverage,duplicated_lines_density,vulnerabilities,security_hotspots,critical_violations,bugs&component=IamAdonis_simple-java-maven-app' -H "Accept:application/json" >> ./Response.json
         pwd
         ls -la
         cat ./Response.json
+        
       
