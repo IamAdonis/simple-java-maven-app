@@ -85,5 +85,5 @@ jobs:
         #curl -u abc: https://sonarcloud.io/api/measures/search_history?from=2021-01--1$&component=IamAdonis_simple-java-maven-app&metrics=coverage&ps=1000 >> ./Response.json
         pwd
         ls -la
-        cat Response.json
+        cat ./Response.json
       
