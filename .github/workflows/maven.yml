@@ -79,6 +79,6 @@ jobs:
     - name: Sonar Gate 
       shell : bash
       run: |
-      #curl "https://sonarcloud.io/api/measures/component_tree?component=keyJabref4.2&metricKeys=sqale_index&ps=100&p=1"
-      #curl -u $SONARCLOUD_TOKEN: https://sonarcloud.io/api/measures/search_history?from=$DATE&component=$COMPONENT_KEY&metrics=coverage&ps=1000
-      curl -u  $abc: https://sonarcloud.io/api/measures/search_history?from=2021-01--1$&component=simple-java-maven-app&metrics=coverage&ps=1000
+        #curl "https://sonarcloud.io/api/measures/component_tree?component=keyJabref4.2&metricKeys=sqale_index&ps=100&p=1"
+        #curl -u $SONARCLOUD_TOKEN: https://sonarcloud.io/api/measures/search_history?from=$DATE&component=$COMPONENT_KEY&metrics=coverage&ps=1000
+        curl -u abc: https://sonarcloud.io/api/measures/search_history?from=2021-01--1$&component=simple-java-maven-app&metrics=coverage&ps=1000
