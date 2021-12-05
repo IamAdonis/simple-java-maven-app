@@ -80,12 +80,14 @@ jobs:
     - name: Sonar Gate 
       shell : bash
       run: |
+        
         #curl -u abc: https://sonarcloud.io/api/measures/component_tree?component=IamAdonis_simple-java-maven-app&metricKeys=sqale_index&ps=100&p=1 > ./Response.json
         #curl -u $SONARCLOUD_TOKEN: https://sonarcloud.io/api/measures/search_history?from=$DATE&component=$COMPONENT_KEY&metrics=coverage&ps=1000
         #curl -u abc: https://sonarcloud.io/api/measures/search_history?from=2021-01--1$&component=IamAdonis_simple-java-maven-app&metrics=coverage&ps=1000 >> ./Response.json
         # curl -u abc: https://sonarcloud.io/api/measures/component?metricKeys=code_smells,coverage,duplicated_lines_density,vulnerabilities,security_hotspots,critical_violations,bugs&component=IamAdonis_simple-java-maven-app >> ./Response.json
+        curl -s -u ": abc" https://sonarcloud.io/api/measures/component?metricKeys=code_smells,coverage,duplicated_lines_density,vulnerabilities,security_hotspots,critical_violations,bugs&component=IamAdonis_simple-java-maven-app >> ./Response.json
 
-        curl -x GET 'https://sonarcloud.io/api/measures/component?metricKeys=code_smells,coverage,duplicated_lines_density,vulnerabilities,security_hotspots,critical_violations,bugs&component=IamAdonis_simple-java-maven-app' -H "Accept:application/json" >> ./Response.json
+        #curl -x GET 'https://sonarcloud.io/api/measures/component?metricKeys=code_smells,coverage,duplicated_lines_density,vulnerabilities,security_hotspots,critical_violations,bugs&component=IamAdonis_simple-java-maven-app' -H "Accept:application/json" >> ./Response.json
         pwd
         ls -la
         cat ./Response.json
