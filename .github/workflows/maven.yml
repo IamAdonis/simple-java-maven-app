@@ -80,6 +80,14 @@ jobs:
           name: artifact 
           path: ${{Github.workspace}}/target/*.jar
           
+     ######## Upload Artifact ######
+    
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v2.2.4
+      with:
+          name: Json output
+          path: ./Response.json     
+          
    ########### JUnit Test with maven ##########   
    
     - name: Test with Maven
