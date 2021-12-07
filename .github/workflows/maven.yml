@@ -4,6 +4,7 @@ name: Java CI with Maven
 env:
   BUILD_TECH: java_maven
   CONTINUE_ON_ERROR: false
+  coverage-threshold: 20
 
 on:
   push:
@@ -69,6 +70,20 @@ jobs:
            echo "$metric"
            echo "$value"
            echo "${metric%.*}"
+           
+           if [ "$metric" == "coverage" ] ;
+              then
+              if [ "${value%.*}" -lt ${{env.COVERAGE-THRESHOLD }} ] ;
+                 then
+                    echo "Expected ${metric%.*} - ${{env.COVERAGE-THRESHOLD}}"
+                    echo "Actual ${metric%.*} - ${value%.*}"
+                    echo "Sonar code coverage Gate: Failed"
+                    exit 1
+                 else  
+                    echo "Expected ${metric%.*} - ${{env.COVERAGE-THRESHOLD}}"
+                    echo "Actual ${metric%.*} - ${value%.*}"
+                    echo "Sonar code coverage Gate: Passed"
+                    exit 1
         done    
           
     ######## Upload Artifact ######
