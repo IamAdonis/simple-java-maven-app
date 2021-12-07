@@ -83,7 +83,8 @@ jobs:
                     echo "Expected ${metric%.*} - ${{env.COVERAGE-THRESHOLD}}"
                     echo "Actual ${metric%.*} - ${value%.*}"
                     echo "Sonar code coverage Gate: Passed"
-                    exit 1
+                 fi
+           fi      
         done    
           
     ######## Upload Artifact ######
