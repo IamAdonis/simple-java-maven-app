@@ -66,7 +66,7 @@ jobs:
         while read jsonData ;
         do
            metric=$(jq -r '.metric' <<< $jsonData)
-           value =$(jq -r '.value'<<< $jsonData)
+           value=$(jq -r '.value'<<< $jsonData)
            echo "$metric"
            echo "$value"
            echo "${metric%.*}"
