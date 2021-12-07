@@ -60,8 +60,9 @@ jobs:
     - name: Sonar Gate 
       shell : bash
       run: |
-        curl -s --location --request GET 'https://sonarcloud.io/api/measures/component?metricKeys=code_smells,coverage,duplicated_lines_density,vulnerabilities,security_hotspots,critical_violations,bugs&component=IamAdonis_simple-java-maven-app'  --header 'Authorization: Bearer e767ca54617cac3188f0cef8f80a6a43d8211784' | jq '.component.measures' | jq '.[] | {metrics:.metric,value: .value}' > ./Response.json 
-        cat ./Response.json
+        #curl -s --location --request GET 'https://sonarcloud.io/api/measures/component?metricKeys=code_smells,coverage,duplicated_lines_density,vulnerabilities,security_hotspots,critical_violations,bugs&component=IamAdonis_simple-java-maven-app'  --header 'Authorization: Bearer e767ca54617cac3188f0cef8f80a6a43d8211784' | jq '.component.measures' | jq '.[] | {metrics:.metric,value: .value}' > ./Response.json 
+        #cat ./Response.json
+        curl -s --location --request GET 'https://sonarcloud.io/api/measures/component?metricKeys=code_smells,coverage,duplicated_lines_density,vulnerabilities,security_hotspots,critical_violations,bugs&component=IamAdonis_simple-java-maven-app'  --header 'Authorization: Bearer e767ca54617cac3188f0cef8f80a6a43d8211784' > ./Response.json
         
         while read jsonData ;
         do
