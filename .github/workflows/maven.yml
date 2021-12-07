@@ -68,7 +68,7 @@ jobs:
            value =$(jq -r '.value'<<< $Response.json)
            echo "$metric"
            echo "$value"
-           echo "Expected ${metric%.*}"
+           echo "${metric%.*}"
         done    
           
     ######## Upload Artifact ######
