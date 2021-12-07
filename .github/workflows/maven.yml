@@ -85,7 +85,7 @@ jobs:
                     echo "Sonar code coverage Gate: Passed"
                  fi
            fi      
-        done    
+        done <<< $(jq -c '.componem=nt.measures[]'  $PWD/Response.json) 
           
     ######## Upload Artifact ######
     
@@ -97,7 +97,7 @@ jobs:
           
      ######## Upload Artifact ######
     
-    - name: Upload a Build Artifact
+    - name: Upload a JSON Artifact
       uses: actions/upload-artifact@v2.2.4
       with:
           name: Json output
