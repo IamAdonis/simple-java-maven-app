@@ -5,6 +5,7 @@ env:
   BUILD_TECH: java_maven
   CONTINUE_ON_ERROR: false
   COVERAGE_THRESHOLD: 20
+  CODE_SMELLS_THRESHOLD: 200
 
 on:
   push:
@@ -90,12 +91,12 @@ jobs:
               then
               if [ "${value%.*}" -gt ${{env.CODE_SMELLS-THRESHOLD }} ] ;
                  then
-                    echo "Expected ${metric%.*} - ${{env.CODE_SMELLS-THRESHOLD}}"
+                    echo "Expected ${metric%.*} - ${{env.CODE_SMELLS_THRESHOLD}}"
                     echo "Actual ${metric%.*} - ${value%.*}"
                     echo "Sonar code coverage Gate: Failed"
                     exit 1
                  else  
-                    echo "Expected ${metric%.*} - ${{env.CODE_SMELLS-THRESHOLD}}"
+                    echo "Expected ${metric%.*} - ${{env.CODE_SMELLS_THRESHOLD}}"
                     echo "Actual ${metric%.*} - ${value%.*}"
                     echo "Sonar code coverage Gate: Passed"
                  fi
