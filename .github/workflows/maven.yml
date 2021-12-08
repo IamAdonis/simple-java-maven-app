@@ -85,6 +85,20 @@ jobs:
                     echo "Actual ${metric%.*} - ${value%.*}"
                     echo "Sonar code coverage Gate: Passed"
                  fi
+                 
+             elif [ "$metric" == "code_smells" ] ;
+              then
+              if [ "${value%.*}" -gt ${{env.CODE_SMELLS-THRESHOLD }} ] ;
+                 then
+                    echo "Expected ${metric%.*} - ${{env.CODE_SMELLS-THRESHOLD}}"
+                    echo "Actual ${metric%.*} - ${value%.*}"
+                    echo "Sonar code coverage Gate: Failed"
+                    exit 1
+                 else  
+                    echo "Expected ${metric%.*} - ${{env.CODE_SMELLS-THRESHOLD}}"
+                    echo "Actual ${metric%.*} - ${value%.*}"
+                    echo "Sonar code coverage Gate: Passed"
+                 fi
            fi      
         done <<< $(jq -c '.component.measures[]'  $PWD/Response.json) 
         cat $PWD/Response.json
